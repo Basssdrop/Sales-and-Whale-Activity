@@ -1,5 +1,5 @@
 import asyncio,websockets,json,hmac,hashlib,time
-from Data import *
+from Data import * #Put api_secret and api_key in Data.py file
 
 async def authenticate(api_key, api_secret):
     timestamp = int(time.time()*1000)
