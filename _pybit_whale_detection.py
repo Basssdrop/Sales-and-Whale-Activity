@@ -5,12 +5,14 @@ ws = WebSocket(
     channel_type="linear",
 )
 
+threshold = 100 # Define your threshold
+
 
 def handle_message(message1):
     try:
-        if float(message1['data']['b'][0][1]) - float(message1['data']['a'][0][1]) >= 20:
+        if float(message1['data']['b'][0][1]) - float(message1['data']['a'][0][1]) >= threshold:
             print("Buy Activity : ",time())
-        elif float(message1['data']['b'][0][1]) - float(message1['data']['a'][0][1]) <= -20:
+        elif float(message1['data']['b'][0][1]) - float(message1['data']['a'][0][1]) <= (threshold*-1):
             print("Sell Activity : ",time())
     except Exception as e:
         print(e)
